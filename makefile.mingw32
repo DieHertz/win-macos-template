@@ -1,0 +1,13 @@
+default: main
+
+main: main.cpp
+	g++ -o main \
+	main.cpp \
+	system/GlWindow.cpp system/GlWindowImplFactory.cpp \
+	system/WindowsGlWindowImpl.cpp system/GlutGlWindowImpl.cpp \
+	system/TimerWin.cpp \
+	-DFREEGLUT_STATIC \
+	-Ifreeglut/include -Iglew/include \
+	-Llib/win-x86_32 \
+	-lfreeglut_static -lglew32 -lopengl32 -lgdi32 -lwinmm \
+	-std=c++11

@@ -1,0 +1,14 @@
+default: main
+
+main: main.cpp
+	g++ -o main \
+	main.cpp \
+	system/GlWindow.cpp system/GlWindowImplFactory.cpp \
+	system/GlutGlWindowImpl.cpp \
+	system/TimerMac.cpp \
+	-DFREEGLUT_STATIC \
+	-Ifreeglut/include -Iglew/include \
+	-Llib/darwin-x86_64 -L/usr/X11R6/lib \
+	-lglut -lGLEW -lX11 -lXxf86vm -lXrandr -lXi -lGL \
+	-framework OpenGL -framework GLUT \
+	-std=c++11
